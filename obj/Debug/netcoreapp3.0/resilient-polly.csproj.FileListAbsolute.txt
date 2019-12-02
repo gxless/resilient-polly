@@ -46,3 +46,7 @@
 /Users/gxless/Desktop/resilient-polly/obj/Debug/netcoreapp3.0/resilient-polly.csproj.CopyComplete
 /Users/gxless/Desktop/resilient-polly/obj/Debug/netcoreapp3.0/resilient-polly.dll
 /Users/gxless/Desktop/resilient-polly/obj/Debug/netcoreapp3.0/resilient-polly.pdb
+/Users/gxless/Desktop/resilient-polly/bin/Debug/netcoreapp3.0/Microsoft.Extensions.Http.dll
+/Users/gxless/Desktop/resilient-polly/bin/Debug/netcoreapp3.0/Microsoft.Extensions.Http.Polly.dll
+/Users/gxless/Desktop/resilient-polly/bin/Debug/netcoreapp3.0/Polly.dll
+/Users/gxless/Desktop/resilient-polly/bin/Debug/netcoreapp3.0/Polly.Extensions.Http.dll

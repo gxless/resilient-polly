@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using resilient_polly.Models;
+using System.Net.Http;
 
 namespace resilient_polly.Controllers
 {
@@ -15,10 +16,24 @@ namespace resilient_polly.Controllers
     {
         private readonly TestContext _testContext;
 
-        public TestingController(TestContext testContext)
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public TestingController(TestContext testContext, IHttpClientFactory httpClientFactory)
         {
             _testContext = testContext;
+            _httpClientFactory = httpClientFactory;
         }
+
+        [HttpGet("test/retry")]
+        public async Task<IActionResult> SomeAction()
+        {
+            // Get an HttpClient configured to the specification you defined in StartUp.
+            var client = _httpClientFactory.CreateClient("local-1");
+
+            var result = await client.GetStringAsync("/test/internalError");
+            return Ok(result);
+        }
+
 
         [HttpGet]
         public ActionResult<string> Get()

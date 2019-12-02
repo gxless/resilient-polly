@@ -26,6 +26,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.InMemory": "3.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.1",
+          "Microsoft.Extensions.Http.Polly": "3.0.1",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -121,7 +122,6 @@
           "Microsoft.Extensions.FileSystemGlobbing": "3.0.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "3.0.0.0",
           "Microsoft.Extensions.Hosting": "3.0.0.0",
-          "Microsoft.Extensions.Http": "3.0.0.0",
           "Microsoft.Extensions.Identity.Core": "3.0.0.0",
           "Microsoft.Extensions.Identity.Stores": "3.0.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "3.0.0.0",
@@ -515,6 +515,38 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Http/3.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.1",
+          "Microsoft.Extensions.Logging": "3.0.1",
+          "Microsoft.Extensions.Options": "3.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Http.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.119.53103"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Http.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Http.Polly/3.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "3.0.1",
+          "Polly": "7.1.0",
+          "Polly.Extensions.Http": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.119.53103"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging/3.0.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.0.1",
@@ -593,6 +625,31 @@
         "dependencies": {
           "System.Security.AccessControl": "4.5.0",
           "System.Security.Principal.Windows": "4.5.0"
+        }
+      },
+      "Polly/7.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Polly.dll": {}
+        }
+      },
+      "Polly.Extensions.Http/3.0.0": {
+        "dependencies": {
+          "Polly": "7.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.Extensions.Http.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Polly.Extensions.Http.dll": {}
         }
       },
       "runtime.native.System/4.3.0": {
@@ -1737,12 +1794,6 @@
       "Microsoft.Extensions.Hosting/3.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Hosting.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Http/3.0.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Http.dll": {}
         },
         "compileOnly": true
       },
@@ -2909,6 +2960,20 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.0.1",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.0.1.nupkg.sha512"
     },
+    "Microsoft.Extensions.Http/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kk/FpShMt+oHcXmav6VEFXu6nov60aychl4iJvY4URRzMWseoTpr3YD3NrHvIvPLi+E1TGKjgIfEEOb3J8IfUQ==",
+      "path": "microsoft.extensions.http/3.0.1",
+      "hashPath": "microsoft.extensions.http.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http.Polly/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59yg70GaFChZpZRHE5NZKimndynKTBmb2isuYx2/qH2y9yv2FhbMZ39YtAjWM82kaRO+n1Vr3Sw2w+piTpAjvw==",
+      "path": "microsoft.extensions.http.polly/3.0.1",
+      "hashPath": "microsoft.extensions.http.polly.3.0.1.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/3.0.1": {
       "type": "package",
       "serviceable": true,
@@ -2964,6 +3029,20 @@
       "sha512": "sha512-nt8HW2YtCF3xGObHXtCAn5tzuZpjy5YMPftzyrjF6Ek5RyLUFU4cSw4yGWV2+dyftDXjDpytdLPrgSttC9ZePA==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
+    },
+    "Polly/7.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mpQsvlEn4ipgICh5CGyVLPV93RFVzOrBG7wPZfzY8gExh7XgWQn0GCDY9nudbUEJ12UiGPP9i4+CohghBvzhmg==",
+      "path": "polly/7.1.0",
+      "hashPath": "polly.7.1.0.nupkg.sha512"
+    },
+    "Polly.Extensions.Http/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-drrG+hB3pYFY7w1c3BD+lSGYvH2oIclH8GRSehgfyP5kjnFnHKQuuBhuHLv+PWyFuaTDyk/vfRpnxOzd11+J8g==",
+      "path": "polly.extensions.http/3.0.0",
+      "hashPath": "polly.extensions.http.3.0.0.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
@@ -3870,11 +3949,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.Hosting/3.0.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Http/3.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

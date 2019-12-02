@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using resilient_polly.Models;
-
+using Polly;
 
 namespace resilient_polly
 {
@@ -33,6 +33,19 @@ namespace resilient_polly
                opt.UseInMemoryDatabase("Resilient-Polly"));
 
             services.AddControllers();
+
+           // Configure a client named as "local-1", with various default properties.
+           services.AddHttpClient("local-1", client =>
+           {
+               client.BaseAddress = new Uri("https://localhost:5001");
+               client.DefaultRequestHeaders.Add("Accept", "application/json");
+           })
+           .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
+           {
+                TimeSpan.FromSeconds(1),
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(10)
+           }));
 
         }
 
@@ -55,5 +68,7 @@ namespace resilient_polly
                 endpoints.MapControllers();
             });
         }
+
+       
     }
 }
